@@ -1,15 +1,8 @@
 
-export function dayFinder(date) {
+export function dayFinder() {
   let year = 1999;
   let month = 2;
   let day = 13;
-
-  // let digits = [];
-  // while (year > 0) {
-  //   digits[digits.length] = year % 10;
-  //   year = parseInt(year / 10);
-  // }
-  // digits.reverse();
 
   let yearDigits = year % 100;
   let part2 = Math.floor(yearDigits / 4);
@@ -28,10 +21,12 @@ export function dayFinder(date) {
     11: "4",
     12: "6"
   }
+
   let part4 = part3 + parseInt(dict[month]);
-  if (month == 1 | month === 2) {
-    part4 -= 1;
+  if (month == 1 || month === 2) {
+    part4 = part4 - 1;
   }
+
   let dict2 = {
     17: "4",
     18: "2",
@@ -42,18 +37,19 @@ export function dayFinder(date) {
   let yearFirst = Math.floor(year/100);
   let century;
   if (17 <= yearFirst <= 20) {
-    parseInt(dict2[yearFirst])
+    century = parseInt(dict2[yearFirst])
   } else if (yearFirst < 17) {
     while (year < 1700) {
       century = year += 400;
-    } else if (yearFirst > 20) {
+    }} else if (yearFirst > 20) {
       while (year > 2100) {
         century = year -= 400;
       }
+      return century;
     }
-  }
-  let total = ((yearFirst + century + yearDigits) % 7);
-  dict3 = {
+  let total = part4 + century;
+  let total2 = (total + (yearFirst + century + yearDigits) % 7);
+  let dict3 = {
     1: "Sunday",
     2: "Monday",
     3: "Tuesday",
@@ -62,5 +58,6 @@ export function dayFinder(date) {
     6: "Friday",
     0: "Saturday"
   }
-  return dict3[total];
+  console.log(dict3[total2]);
+  return dict3[total2];
 }
