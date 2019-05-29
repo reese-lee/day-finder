@@ -1,6 +1,6 @@
-import { dayFinder } from './../src/functions.js';
+import { DateSolver, dayFinder } from './../src/functions.js';
 
-describe('dayFinder', function() {
+describe('DateSolver', function() {
 
   it('should test whether a date outputs the correct day', function() {
     // let test = new Date();

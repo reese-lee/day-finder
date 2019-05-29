@@ -1,12 +1,12 @@
-// export class DateSolver() {
-//
-// }
+// class DateSolver {
+//   constructor(date) {
+//     this.date = date;
+//   }
 
 export function dayFinder() {
   var dateControl = document.querySelector('input[type="date"]');
   var test = new Date(dateControl.value);
   let dayNumber = test.getUTCDay();
-
   let dict3 = {
     0: "Sunday",
     1: "Monday",
