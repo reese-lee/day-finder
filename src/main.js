@@ -18,6 +18,6 @@ $(document).ready(function() {
     event.preventDefault();
     let results = dayFinder();
     $("#result").text(results).show();
-    console.log(results);
+    // console.log(results);
   });
 });
