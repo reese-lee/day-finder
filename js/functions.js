@@ -40,8 +40,27 @@ export function dayFinder(date) {
   }
 
   let yearFirst = Math.floor(year/100);
-  do {
-    year - 400;
+  let century;
+  if (17 <= yearFirst <= 20) {
+    parseInt(dict2[yearFirst])
+  } else if (yearFirst < 17) {
+    while (year < 1700) {
+      century = year += 400;
+    } else if (yearFirst > 20) {
+      while (year > 2100) {
+        century = year -= 400;
+      }
+    }
   }
-  while (year > 2999);
+  let total = ((yearFirst + century + yearDigits) % 7);
+  dict3 = {
+    1: "Sunday",
+    2: "Monday",
+    3: "Tuesday",
+    4: "Wednesday",
+    5: "Thursday",
+    6: "Friday",
+    0: "Saturday"
+  }
+  return dict3[total];
 }
