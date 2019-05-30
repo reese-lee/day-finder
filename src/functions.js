@@ -1,12 +1,11 @@
-// class DateSolver {
-//   constructor(date) {
-//     this.date = date;
-//   }
+class DateSolver {
+  constructor(date) {
+    this.date = new Date(date);
+  }
 
-export function dayFinder() {
-  var dateControl = document.querySelector('input[type="date"]');
-  var test = new Date(dateControl.value);
-  let dayNumber = test.getUTCDay();
+dayFinder() {
+  // var dateControl = document.querySelector('input[type="date"]');
+  let dayNumber = this.date.getUTCDay();
   let dict3 = {
     0: "Sunday",
     1: "Monday",
@@ -67,4 +66,5 @@ export function dayFinder() {
   //   }
   // let total = part4 + century;
   // let total2 = (total + (yearFirst + century + yearDigits) % 7);
+}
 }
